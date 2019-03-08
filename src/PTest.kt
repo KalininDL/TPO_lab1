@@ -12,7 +12,9 @@ import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.function.Executable as groupAssertExecutable
 import org.junit.runners.MethodSorters
+import org.openqa.selenium.interactions.Actions
 import java.lang.reflect.Executable
+import javax.swing.Action
 import kotlin.test.assertEquals
 
 
@@ -195,32 +197,23 @@ companion object {
 
     @Test
     @DisplayName("Upper Menu items test")
-    fun test6(){
+    fun test0(){
         Assertions.assertAll(
             groupAssertExecutable {
-                byXPath("//*[@id=\"id_publicPeriod_sel\"]")?.click()
-                assert(isDisplayed(byXPath("//*[@id=\"id_publicPeriod_sel\"]/b/a[2]")))
-                byXPath("//*[@id=\"id_publicPeriod_sel\"]")?.click()
+                Actions(driver).moveToElement(byXPath("//*[@id=\"menu\"]/li[1]")).build().perform()
+                assert(isDisplayed(byXPath("//*[@id=\"menu\"]/li[1]/div/div/a[1]")))
             },
             groupAssertExecutable {
-                byXPath("//*[@id=\"id_citizenship_sel\"]")?.click()
-                assert(isDisplayed(byXPath("//*[@id=\"id_citizenship_sel\"]/b/a[2]")))
-                byXPath("//*[@id=\"id_citizenship_sel\"]")?.click()
+                Actions(driver).moveToElement(byXPath("//*[@id=\"menu\"]/li[2]")).build().perform()
+                assert(isDisplayed(byXPath("//*[@id=\"menu\"]/li[2]/div/div/a[1]")))
             },
             groupAssertExecutable {
-                byXPath("//*[@id=\"id_familyStatus_sel\"]")?.click()
-                assert(isDisplayed(byXPath("//*[@id=\"id_familyStatus_sel\"]/b/a[2]")))
-                byXPath("//*[@id=\"id_familyStatus_sel\"]")?.click()
+                Actions(driver).moveToElement(byXPath("//*[@id=\"menu\"]/li[4]")).build().perform()
+                assert(isDisplayed(byXPath("//*[@id=\"menu\"]/li[4]/div/div/a[1]")))
             },
             groupAssertExecutable {
-                byXPath("//*[@id=\"id_stage_sel\"]")?.click()
-                assert(isDisplayed(byXPath("//*[@id=\"id_stage_sel\"]/b/a[2]")))
-                byXPath("//*[@id=\"id_stage_sel\"]")?.click()
-            },
-            groupAssertExecutable {
-                byXPath("//*[@id=\"id_livingDistrict_sel\"]")?.click()
-                assert(isDisplayed(byXPath("//*[@id=\"id_livingDistrict_sel\"]/b/a[2]")))
-                byXPath("//*[@id=\"id_livingDistrict_sel\"]")?.click()
+                Actions(driver).moveToElement(byXPath("//*[@id=\"menu\"]/li[5]")).build().perform()
+                assert(isDisplayed(byXPath("//*[@id=\"menu\"]/li[5]/div/div/a[1]")))
             }
         )
     }
